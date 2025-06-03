@@ -81,13 +81,6 @@ app.get("/allusers",async(req,res)=>{
 
 
 
-
-
-
-
-
-
-
 app.listen(5000,()=>{
     console.log("server start at 5000")
 })
