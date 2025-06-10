@@ -17,6 +17,8 @@ app.use(bodyParser.urlencoded())
 
 // our Schema --------------------
 let Userschema=require("./model/Users")
+let productschema=require("./model/Products")
+
 
 
 
@@ -54,6 +56,43 @@ app.post("/signup",async(req,res)=>{
         })
     }
 })
+
+
+// Forgot ---------------
+app.post("/Forgot",async(req,res)=>{
+   let updatedata=await Userschema.findOneAndUpdate({_id:req.body.currentuser._id},{ $set: { password:req.body.Forgot.password } })
+
+
+   if(updatedata){
+        res.json({
+            status:true,
+            msg:"password Update",
+        })
+    }
+    else{
+        res.json({
+            status:false,
+            msg:"failed password Update"
+        })
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // allusers-------------------
